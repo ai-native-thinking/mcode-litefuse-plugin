@@ -39,16 +39,22 @@ MiniMax Code turn ──┤
 
 ## 安装
 
-插件需要放在 MiniMax Code 的本地插件目录（默认 `~/.minimax/plugins`），目录名保持 `litefuse-observability`：
+从 GitHub 克隆并构建单文件 Hook：
 
 ```bash
-cd /Users/xuwei/workspace/ai-native-thinking/mcode-litefuse-plugin
+git clone https://github.com/ai-native-thinking/mcode-litefuse-plugin.git
+cd mcode-litefuse-plugin
 pnpm install
 pnpm build                       # 生成 dist/index.mjs（单文件、已内置全部依赖）
-ln -s "$PWD" ~/.minimax/plugins/litefuse-observability
 ```
 
-或直接复制目录：
+把插件安装到 MiniMax Code 的本地插件目录（默认 `~/.minimax/plugins`），目录名保持 `litefuse-observability`。**必须用复制，不能用软链**——宿主扫描本地插件目录时会静默跳过软链，软链会「看起来装好了但永远不加载」：
+
+```bash
+pnpm sync                        # 复制仓库（去除 node_modules 与 .git）到 ~/.minimax/plugins/litefuse-observability
+```
+
+或手动复制：
 
 ```bash
 cp -R "$PWD" ~/.minimax/plugins/litefuse-observability
@@ -60,7 +66,7 @@ cp -R "$PWD" ~/.minimax/plugins/litefuse-observability
 mcode plugin list --marketplace local --available --json
 ```
 
-`dist/index.mjs` 是运行时实际执行的自包含 Hook，**修改 `src/` 后必须重新 `pnpm build`**。宿主加载的是 `~/.minimax/plugins/` 下的文件（复制或软链都可以），所以重新构建后无需再次安装。
+`dist/index.mjs` 是运行时实际执行的自包含 Hook。宿主加载的是 `~/.minimax/plugins/` 下的**副本**，编辑仓库不会改变宿主实际执行的文件——**修改 `src/` 后必须重新 `pnpm build && pnpm sync`**。
 
 ## 配置
 
