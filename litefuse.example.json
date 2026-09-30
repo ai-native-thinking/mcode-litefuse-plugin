@@ -1,0 +1,9 @@
+{
+  "enabled": false,
+  "public_key": "pk-lf-REPLACE_ME",
+  "secret_key": "sk-lf-REPLACE_ME",
+  "base_url": "http://localhost:3000",
+  "environment": "development",
+  "user_id": "REPLACE_ME",
+  "tags": ["mcode-litefuse"]
+}

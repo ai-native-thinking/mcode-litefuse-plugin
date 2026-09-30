@@ -1,0 +1,14 @@
+{
+  "Stop": [
+    {
+      "hooks": [
+        {
+          "type": "command",
+          "command": "node \"${MINIMAX_PLUGIN_ROOT}/dist/index.mjs\"",
+          "timeout": 10,
+          "statusMessage": "Uploading MiniMax Code trace to Litefuse"
+        }
+      ]
+    }
+  ]
+}

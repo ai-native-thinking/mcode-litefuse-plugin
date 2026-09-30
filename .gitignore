@@ -1,0 +1,9 @@
+node_modules/
+.pnpm-store/
+.plugin-data/
+litefuse.json
+*.log
+
+# Internal development report — contains internal hostnames, not for public repo.
+DEV-REPORT.md
+.DS_Store

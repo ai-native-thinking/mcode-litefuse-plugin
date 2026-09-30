@@ -1,0 +1,16 @@
+{
+  "$schema": "https://agent.minimax.io/schemas/plugin.json",
+  "schemaVersion": 1,
+  "name": "litefuse-observability",
+  "displayName": "Litefuse Observability",
+  "version": "0.1.0",
+  "description": "Trace MiniMax Code turns, model responses, and tool calls to Litefuse. Designed to run alongside the Langfuse observability plugin so a session can be written to both backends.",
+  "author": "Litefuse",
+  "icon": "assets/litefuse.png",
+  "category": "Code",
+  "exampleQueries": ["Show me the traces for this coding session"],
+  "apps": [],
+  "mcpServers": [],
+  "skills": [],
+  "hooks": ["hooks/hooks.json"]
+}
